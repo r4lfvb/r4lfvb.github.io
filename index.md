@@ -2,4 +2,4 @@
 
 This is my GitHub webpage.
 
-::shipit::
+:shipit:
