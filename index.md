@@ -12,7 +12,7 @@ Picking up the guitar again after a few years has been a really nice way of crea
 
 ## Language
 
-Spending time in Europe I've made time to learn German which is both challenging and rewarding. I look forward to some practice once we are able to travel again.
+Spending time in Europe I've made the commitment to learn German which is both challenging and rewarding. I look forward to some practice once we are able to travel again.
 
 ![Photo of a sign post including various languages](/images/language.jpg)
 
