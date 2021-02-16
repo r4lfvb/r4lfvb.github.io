@@ -1,6 +1,5 @@
-title: Ralf von Broembsen
-
+title: Ralf
 plugins:
   - jekyll-remote-theme
-
 remote_theme: vszhub/not-pure-poole
+cover_image: /images/background.jpg
