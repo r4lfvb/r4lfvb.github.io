@@ -1,3 +1,6 @@
 title: Ralf von Broembsen
 
-theme: jekyll-theme-hacker
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: vszhub/not-pure-poole
