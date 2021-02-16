@@ -15,3 +15,6 @@ Here is the flow:
 4. The function starts as expected but after a few seconds an exception is thrown.
 
 ![Visual Studio Code showing an exception message](/images/2021-02-16-vscode-azfun-error.png)
+
+The exception reads:
+
