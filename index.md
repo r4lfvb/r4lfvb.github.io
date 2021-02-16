@@ -1,3 +1,7 @@
+---
+layout: home
+---
+
 Welcome to my site!
 
 __Blog Posts__
