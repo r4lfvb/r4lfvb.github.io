@@ -15,7 +15,7 @@ body {
     padding: 0;
     font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace;
     font-size: 1rem;
-    line-height: 2;
+    line-height: 1;
     letter-spacing: -0.02em;
     background-color: var(--bg-colour);
     color: var(--primary-colour);
@@ -49,7 +49,7 @@ a {
 }
 
 p {
-    margin: 10px 0px 20px 0px;
+    margin: 10px 0px 10px 0px;
 }
 
 ul {
@@ -73,9 +73,7 @@ code,
 kbd {
     font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace !important;
     font-feature-settings: normal;
-    background: var(--highlight-bg-colour);
     color: var(--highlight-colour);
-    padding: 1px 6px;
     margin: 0 2px;
     font-size: .95rem;
 }
