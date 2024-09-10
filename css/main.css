@@ -76,6 +76,7 @@ kbd {
     color: var(--highlight-colour);
     margin: 0 2px;
     font-size: .95rem;
+    text-wrap: wrap;
 }
 
 blockquote {
