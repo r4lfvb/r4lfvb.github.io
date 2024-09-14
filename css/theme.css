@@ -1,64 +1,31 @@
 ﻿/* Dark theme */
-/*@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-colour: #04362f;
-        --bg-secondary: #11453d;
-        --primary-colour: #9AE7D9;
-        --secondary-colour: #04362f;
-        --highlight-colour: #04362f;
-        --highlight-bg-colour: #FFC9D2;
-        --btn-txt-colour: #04362f;
-        --photo-bg-colour: #FFFFFF;
-        --photo-txt-colour: #04362f;
-        --blockquote: #ffffff;
-    }
-}*/
-
-/*
-Walkman theme
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-colour: #192c52;
-        --bg-secondary: #888785;
-        --primary-colour: #ffffff;
-        --secondary-colour: #192c52;
-        --highlight-colour: #f6cd11;
-        --highlight-bg-colour: #49a074;
-        --btn-txt-colour: #04362f;
-        --photo-bg-colour: #888785;
-        --photo-txt-colour: #f6cd11;
-        --blockquote: #49a074;
-    }
-}
-*/
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-colour: #04362f;
-        --bg-secondary: #11453d;
-        --primary-colour: #9AE7D9;
-        --secondary-colour: #04362f;
-        --highlight-colour: #04362f;
-        --highlight-bg-colour: #FFC9D2;
-        --btn-txt-colour: #04362f;
-        --photo-bg-colour: #FFFFFF;
-        --photo-txt-colour: #04362f;
-        --blockquote: #FFC9D2;
+        --bg-colour: #1e1e2e;
+        --bg-secondary: #302d41;
+        --primary-colour: #cdd6f4;
+        --secondary-colour: #1e1e2e;
+        --highlight-colour: #f5e0dc;
+        --highlight-bg-colour: #f28fad;
+        --btn-txt-colour: #1e1e2e;
+        --photo-bg-colour: #302d41;
+        --photo-txt-colour: #f5e0dc;
+        --blockquote: #f28fad;
     }
 }
 
 /* Light theme */
 @media (prefers-color-scheme: light) {
     :root {
-        --bg-colour: #192c52;
-        --bg-secondary: #888785;
-        --primary-colour: #ffffff;
-        --secondary-colour: #192c52;
-        --highlight-colour: #f6cd11;
-        --highlight-bg-colour: #49a074;
-        --btn-txt-colour: #04362f;
-        --photo-bg-colour: #888785;
-        --photo-txt-colour: #f6cd11;
-        --blockquote: #49a074;
+        --bg-colour: #f2cdcd;
+        --bg-secondary: #f5e0dc;
+        --primary-colour: #4c4f69;
+        --secondary-colour: #dce0e8;
+        --highlight-colour: #d20f39;
+        --highlight-bg-colour: #f28fad;
+        --btn-txt-colour: #4c4f69;
+        --photo-bg-colour: #f5e0dc;
+        --photo-txt-colour: #d20f39;
+        --blockquote: #f28fad;
     }
 }
