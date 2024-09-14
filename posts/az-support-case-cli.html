@@ -59,7 +59,7 @@
                 <li>Get the ID for the Subscription Management service:</li>
                 <pre><code class="language-powershell">az support services list --query "[?contains(displayName, 'Subscription management')]"</code></pre>
                 <li>Get the ID for the "Unable to access my subscription / Issues signing in or accessing my subscriptions" problem category:</li>
-                <pre><code class="language-powershell">az support services problem-classifications list --service-name [GUID from previous result here]"</code></pre>
+                <pre><code class="language-powershell">az support services problem-classifications list --service-name "[GUID from previous result here]"</code></pre>
                 <li>Get the "A-3" country code from this page: <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">List of ISO 3166 country codes</a></li>
                 <li>Get the "Name of Time Zone" from this page: <a href="https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)">Microsoft Time Zone Index Values</a></li>
                 <li>Create the support case:</li>

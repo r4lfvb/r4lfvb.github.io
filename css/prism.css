@@ -2,9 +2,8 @@
 https://prismjs.com/download.html#themes=prism&languages=bicep+powershell */
 code[class*=language-],
 pre[class*=language-] {
-    color: #000;
+    color: #ffffff;
     background: rgba(255, 255, 255, 0);
-    text-shadow: 0 1px #fff;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;
     text-align: left;
@@ -19,7 +18,13 @@ pre[class*=language-] {
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
-    hyphens: none
+    hyphens: none;
+    border: 1px solid var(--primary-colour);
+    border-radius: 5px;
+}
+
+code[class*=language-]{
+    border:none;
 }
 
 code[class*=language-] ::-moz-selection,
@@ -48,13 +53,13 @@ pre[class*=language-]::selection {
 
 pre[class*=language-] {
     padding: 1em;
-    margin: .5em 0;
+    margin: 0px 0px 10px 0px;
     overflow: auto
 }
 
 :not(pre)>code[class*=language-],
 pre[class*=language-] {
-    background: #f5f2f0
+    background: none;
 }
 
 :not(pre)>code[class*=language-] {
@@ -94,7 +99,7 @@ pre[class*=language-] {
 .token.inserted,
 .token.selector,
 .token.string {
-    color: #690
+    color: #f6cd11;
 }
 
 .language-css .token.string,
@@ -102,8 +107,7 @@ pre[class*=language-] {
 .token.entity,
 .token.operator,
 .token.url {
-    color: #9a6e3a;
-    background: hsla(0, 0%, 100%, .5)
+    color: #a9ffa0;
 }
 
 .token.atrule,
