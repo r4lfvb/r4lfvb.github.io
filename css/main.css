@@ -1,5 +1,13 @@
 /* Hello from the Alps */
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -89,7 +97,6 @@ blockquote {
     padding: 40px;
     max-width: 864px;
     min-height: 100vh;
-    border-right: 1px solid var(--bg-secondary);
 }
 
 h1,

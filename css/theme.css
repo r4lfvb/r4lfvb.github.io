@@ -13,6 +13,7 @@
         --blockquote: #ffffff;
     }
 }*/
+
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-colour: #192c52;
