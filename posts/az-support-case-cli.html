@@ -33,23 +33,26 @@
                         <div class="logo"> Ralf </div>
                     </a></div>
             </div>
-            <nav class="navigation-menu" >
-                <ul class="navigation-menu-inner" >
-                    <li ><a href="https://github.com/r4lfvb" target="_blank" rel="noopener noreferrer"
-                            >GitHub</a></li>
-                    <li ><a href="https://www.linkedin.com/in/ralfvb" target="_blank"
-                            rel="noopener noreferrer" >LinkedIn</a></li>
-                    <li ><a href="https://twit.social/@ralfvb" target="_blank" rel="noopener noreferrer"
-                            >Mastodon</a></li>
+            <nav class="navigation-menu">
+                <ul class="navigation-menu-inner">
+                    <li><a href="https://github.com/r4lfvb" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ralfvb" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://twit.social/@ralfvb" target="_blank" rel="noopener noreferrer">Mastodon</a>
+                    </li>
                 </ul>
             </nav>
         </header>
         <div class="content post">
             <h1>Creating an Azure support case without a subscription</h1>
             <p><i>10 Sept 2024</i></p>
-            <p>I recently lost access to one of my Azure subscriptions and could no longer see it in the subscription list in the <a href="https://portal.azure.com">Azure Portal</a> or using the <a href="https://learn.microsoft.com/en-us/cli/azure">Azure CLI</a>.</p>
-            <p>Of course you can create a support case from the Azure portal but if you don't have a subscription, you need to use the Azure CLI to create it.</p>
-            <img src="../img/azure-portal-support-case.png" alt="Screenshot of the Azure Portal showing the support case creation form with the required subscription dropdown box." />
+            <p>I recently lost access to one of my Azure subscriptions and could no longer see it in the subscription
+                list in the <a href="https://portal.azure.com">Azure Portal</a> or using the <a
+                    href="https://learn.microsoft.com/en-us/cli/azure">Azure CLI</a>.</p>
+            <p>Of course you can create a support case from the Azure portal but if you don't have a subscription, you
+                need to use the Azure CLI to create it.</p>
+            <img src="../img/azure-portal-support-case.png"
+                alt="Screenshot of the Azure Portal showing the support case creation form with the required subscription dropdown box." />
             <p>Here's how you can create an Azure support case using the Azure CLI:</p>
             <ol>
                 <li>Install the Azure CLI:</li>
@@ -58,10 +61,15 @@
                 <pre><code class="language-powershell">az extensions add --name support</code></pre>
                 <li>Get the ID for the Subscription Management service:</li>
                 <pre><code class="language-powershell">az support services list --query "[?contains(displayName, 'Subscription management')]"</code></pre>
-                <li>Get the ID for the "Unable to access my subscription / Issues signing in or accessing my subscriptions" problem category:</li>
+                <li>Get the ID for the "Unable to access my subscription / Issues signing in or accessing my
+                    subscriptions" problem category:</li>
                 <pre><code class="language-powershell">az support services problem-classifications list --service-name "[GUID from previous result here]"</code></pre>
-                <li>Get the "A-3" country code from this page: <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">List of ISO 3166 country codes</a></li>
-                <li>Get the "Name of Time Zone" from this page: <a href="https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)">Microsoft Time Zone Index Values</a></li>
+                <li>Get the "A-3" country code from this page: <a
+                        href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">List of ISO 3166 country
+                        codes</a></li>
+                <li>Get the "Name of Time Zone" from this page: <a
+                        href="https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)">Microsoft
+                        Time Zone Index Values</a></li>
                 <li>Create the support case:</li>
                 <pre><code class="language-powershell">az support no-subscription tickets create --ticket-name "CannotAccessSub" --title "I cannot access my subscription" --contact-country "[Your A-3 Country Code]" --contact-email "[Your email address]" --contact-first-name "[Your first name]" --contact-language "en-us" --contact-last-name "[Your last name]" --contact-method "email" --contact-timezone "[Your time zone name]" --description "I can no longer see my Azure subscription listed in the portal or CLI. Sub Name=[Your Sub Name Here] Sub ID=[Your Sub ID Here]" --advanced-diagnostic-consent "Yes" --problem-classification "[The problem classification ID you got earlier]" --severity "minimal"</code></pre>
             </ol>
