@@ -17,7 +17,7 @@
 /* Light theme */
 @media (prefers-color-scheme: light) {
     :root {
-        --bg-colour: #f2cdcd;
+        --bg-colour: #ffffff;
         --bg-secondary: #f5e0dc;
         --primary-colour: #4c4f69;
         --secondary-colour: #dce0e8;
