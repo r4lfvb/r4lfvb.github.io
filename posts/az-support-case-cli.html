@@ -56,23 +56,12 @@
                 <pre><code class="language-powershell">winget install Azure.CLI</code></pre>
                 <li>Install the support extension:</li>
                 <pre><code class="language-powershell">az extensions add --name support</code></pre>
-                <li>Gather info for the required parameters:</li>
-                    <ul>
-                        <li>
-                            <p>Get the ID for the Subscription Management service:</p>
-                            <pre><code class="language-powershell">az support services list --query "[?contains(displayName, 'Subscription management')]"</code></pre>
-                        </li>
-                        <li>
-                            <p>Get the ID for the "Unable to access my subscription / Issues signing in or accessing my subscriptions" problem category:</p>
-                            <pre><code class="language-powershell">az support services problem-classifications list --service-name [GUID from previous result here]"</code></pre>
-                        </li>
-                        <li>
-                            Get the "A-3" country code from this page: <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">List of ISO 3166 country codes</a>
-                        </li>
-                        <li>
-                            Get the "Name of Time Zone" from this page: <a href="https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)">Microsoft Time Zone Index Values</a>
-                        </li>
-                    </ul>
+                <li>Get the ID for the Subscription Management service:</li>
+                <pre><code class="language-powershell">az support services list --query "[?contains(displayName, 'Subscription management')]"</code></pre>
+                <li>Get the ID for the "Unable to access my subscription / Issues signing in or accessing my subscriptions" problem category:</li>
+                <pre><code class="language-powershell">az support services problem-classifications list --service-name [GUID from previous result here]"</code></pre>
+                <li>Get the "A-3" country code from this page: <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">List of ISO 3166 country codes</a></li>
+                <li>Get the "Name of Time Zone" from this page: <a href="https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)">Microsoft Time Zone Index Values</a></li>
                 <li>Create the support case:</li>
                 <pre><code class="language-powershell">az support no-subscription tickets create --ticket-name "CannotAccessSub" --title "I cannot access my subscription" --contact-country "[Your A-3 Country Code]" --contact-email "[Your email address]" --contact-first-name "[Your first name]" --contact-language "en-us" --contact-last-name "[Your last name]" --contact-method "email" --contact-timezone "[Your time zone name]" --description "I can no longer see my Azure subscription listed in the portal or CLI. Sub Name=[Your Sub Name Here] Sub ID=[Your Sub ID Here]" --advanced-diagnostic-consent "Yes" --problem-classification "[The problem classification ID you got earlier]" --severity "minimal"</code></pre>
             </ol>
