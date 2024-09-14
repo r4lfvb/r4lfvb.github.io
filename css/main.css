@@ -200,8 +200,9 @@ h6 {
     }
 
     .post > img {
-        margin: 10px 0px 0px 0px;
-        width : 99%;
+        margin: 10px 0px 10px 0px;
+        width: 60%;
+        box-shadow: 0 5px 20px rgba(111, 157, 231, 0.863), 0 6px 6px rgba(0, 0, 0, 0.23);
     }
 
 .post-title {
