@@ -2,7 +2,7 @@
 https://prismjs.com/download.html#themes=prism&languages=bicep+powershell */
 code[class*=language-],
 pre[class*=language-] {
-    color: #ffffff;
+    color: var(--primary-colour);
     background: rgba(255, 255, 255, 0);
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;
@@ -90,7 +90,7 @@ pre[class*=language-] {
 .token.property,
 .token.symbol,
 .token.tag {
-    color: #905
+    color: var(--highlight-colour);
 }
 
 .token.attr-name,
@@ -99,7 +99,7 @@ pre[class*=language-] {
 .token.inserted,
 .token.selector,
 .token.string {
-    color: #f6cd11;
+    color: var(--highlight-colour);
 }
 
 .language-css .token.string,
@@ -107,24 +107,24 @@ pre[class*=language-] {
 .token.entity,
 .token.operator,
 .token.url {
-    color: #a9ffa0;
+    color: var(--highlight-colour);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-    color: #07a
+    color: var(--highlight-colour);
 }
 
 .token.class-name,
 .token.function {
-    color: #dd4a68
+    color: var(--highlight-colour);
 }
 
 .token.important,
 .token.regex,
 .token.variable {
-    color: #e90
+    color: var(--highlight-colour);
 }
 
 .token.bold,
