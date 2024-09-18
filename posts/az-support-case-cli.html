@@ -60,11 +60,13 @@
                 <pre><code class="language-powershell">winget install Azure.CLI</code></pre>
                 <li>Install the support extension:</li>
                 <pre><code class="language-powershell">az extensions add --name support</code></pre>
+                <li>Login to Azure:</li>
+                <pre><code class="language-powershell">az login</code></pre>
                 <li>Get the ID for the Subscription Management service:</li>
-                <pre><code class="language-powershell">az support services list --query "[?contains(displayName, 'Subscription management')]"</code></pre>
+                <pre><code class="language-powershell">az support services list --query "[?contains(displayName, 'Subscription management')].name"</code></pre>
                 <li>Get the ID for the "Unable to access my subscription / Issues signing in or accessing my
                     subscriptions" problem category:</li>
-                <pre><code class="language-powershell">az support services problem-classifications list --service-name "[GUID from previous result here]"</code></pre>
+                <pre><code class="language-powershell">az support services problem-classifications list --service-name "[GUID from previous result here]" --query "[?contains(displayName, 'Unable to access my subscription / Issues signing in')].id"</code></pre>
                 <li>Get the "A-3" country code from this page: <a
                         href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">List of ISO 3166 country
                         codes</a></li>
