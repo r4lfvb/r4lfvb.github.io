@@ -50,8 +50,18 @@ body {
     float: none;
 }
 
-a {
+a.button {
+    outline: none; /* Remove the outline */
     color: inherit;
+    text-decoration: none; /* Optional: Remove underline for better appearance */
+    padding: 4px 8px;
+}
+
+a.button:hover {
+    outline: none; /* Remove the outline */
+    border-radius: 8px;
+    padding: 4px 8px;
+    background-color: #ffb6c1; /* Light pastel pink */
 }
 
 p {

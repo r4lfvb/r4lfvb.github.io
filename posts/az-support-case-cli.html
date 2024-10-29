@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Blog,Azure,Support,CLI">
     <meta name="author" content="Ralf von Broembsen">
-    <meta name="description" content="When you have a subscription, you can create a support case in the Azure portal. But what if you don't have a subscription?">
+    <meta name="description"
+        content="When you have a subscription, you can create a support case in the Azure portal. But what if you don't have a subscription?">
     <base href="/">
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" type="text/css" href="../css/theme.css">
@@ -36,10 +37,12 @@
             </div>
             <nav class="navigation-menu">
                 <ul class="navigation-menu-inner">
-                    <li><a href="https://github.com/r4lfvb" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/ralfvb" target="_blank"
-                            rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="https://twit.social/@ralfvb" target="_blank" rel="noopener noreferrer">Mastodon</a>
+                    <li><a href="https://github.com/r4lfvb" target="_blank" rel="noopener noreferrer"
+                            class="button">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ralfvb" target="_blank" rel="noopener noreferrer"
+                            class="button">LinkedIn</a></li>
+                    <li><a href="https://twit.social/@ralfvb" target="_blank" rel="noopener noreferrer"
+                            class="button">Mastodon</a>
                     </li>
                 </ul>
             </nav>
@@ -56,32 +59,79 @@
                 alt="Screenshot of the Azure Portal showing the support case creation form with the required subscription dropdown box." />
             <p>Here's how you can create an Azure support case using the Azure CLI:</p>
             <ol>
-                <li>Open Windows Terminal and install the Azure CLI:</li>
-                <pre><code class="language-powershell">winget install Azure.CLI</code></pre>
+                <pre><code class="language-powershell">winget install Azure.CLI</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
+
                 <li>Install the support extension:</li>
-                <pre><code class="language-powershell">az extensions add --name support</code></pre>
+
+                <pre><code class="language-powershell">az extensions add --name support</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
+
                 <li>Login to Azure:</li>
-                <pre><code class="language-powershell">az login</code></pre>
+
+                <pre><code class="language-powershell">az login</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
+
                 <li>Get the ID for the Subscription Management service:</li>
-                <pre><code class="language-powershell">az support services list --query "[?contains(displayName, 'Subscription management')].name"</code></pre>
+
+                <pre><code class="language-powershell">az support services list --query "[?contains(displayName, 'Subscription management')].name"</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
+
                 <li>Get the ID for the "Unable to access my subscription / Issues signing in or accessing my
                     subscriptions" problem category:</li>
-                <pre><code class="language-powershell">az support services problem-classifications list --service-name "[GUID from previous result here]" --query "[?contains(displayName, 'Unable to access my subscription / Issues signing in')].id"</code></pre>
+
+                <pre><code class="language-powershell">az support services problem-classifications list --service-name "[GUID from previous result here]" --query "[?contains(displayName, 'Unable to access my subscription / Issues signing in')].id"</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
+
                 <li>Get the "A-3" country code from this page: <a
                         href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">List of ISO 3166 country
                         codes</a></li>
+
                 <li>Get the "Name of Time Zone" from this page: <a
                         href="https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)">Microsoft
                         Time Zone Index Values</a></li>
+
                 <li>Create the support case:</li>
-                <pre><code class="language-powershell">az support no-subscription tickets create --ticket-name "CannotAccessSub" --title "I cannot access my subscription" --contact-country "[Your A-3 Country Code]" --contact-email "[Your email address]" --contact-first-name "[Your first name]" --contact-language "en-us" --contact-last-name "[Your last name]" --contact-method "email" --contact-timezone "[Your time zone name]" --description "I can no longer see my Azure subscription listed in the portal or CLI. Sub Name=[Your Sub Name Here] Sub ID=[Your Sub ID Here]" --advanced-diagnostic-consent "Yes" --problem-classification "[The problem classification ID you got earlier]" --severity "minimal"</code></pre>
+
+                <pre><code class="language-powershell">az support no-subscription tickets create --ticket-name "CannotAccessSub" --title "I cannot access my subscription" --contact-country "[Your A-3 Country Code]" --contact-email "[Your email address]" --contact-first-name "[Your first name]" --contact-language "en-us" --contact-last-name "[Your last name]" --contact-method "email" --contact-timezone "[Your time zone name]" --description "I can no longer see my Azure subscription listed in the portal or CLI. Sub Name=[Your Sub Name Here] Sub ID=[Your Sub ID Here]" --advanced-diagnostic-consent "Yes" --problem-classification "[The problem classification ID you got earlier]" --severity "minimal"</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
+
+                <li>Create the support case:</li>
+                <pre><code class="language-powershell">az support no-subscription tickets create --ticket-name "CannotAccessSub" --title "I cannot access my subscription" --contact-country "[Your A-3 Country Code]" --contact-email "[Your email address]" --contact-first-name "[Your first name]" --contact-language "en-us" --contact-last-name "[Your last name]" --contact-method "email" --contact-timezone "[Your time zone name]" --description "I can no longer see my Azure subscription listed in the portal or CLI. Sub Name=[Your Sub Name Here] Sub ID=[Your Sub ID Here]" --advanced-diagnostic-consent "Yes" --problem-classification "[The problem classification ID you got earlier]" --severity "minimal"</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
             </ol>
-            <span><a href="/">back to homepage</a></span>
-        </div>
-        <footer class="footer">
-            <div class="footer__inner"></div>
-        </footer>
-        <script src="../js/prism.js"></script>
+            <style>
+                .copy-button {
+                    background-color: pink;
+                    border: none;
+                    color: black;
+                    padding: 5px 10px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 12px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    position: absolute;
+                    right: 10px;
+                    bottom: 10px;
+                }
+
+                pre {
+                    position: relative;
+                }
+            </style>
+            <script>
+                function copyToClipboard(button) {
+                    const codeBlock = button.previousElementSibling;
+                    const textArea = document.createElement("textarea");
+                    textArea.value = codeBlock.textContent;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(textArea);
+                    alert("Code copied to clipboard!");
+                }
+            </script>
+        </div> <span><a href="/" class="button">back to homepage</a></span>
+    </div>
+    <footer class="footer">
+        <div class="footer__inner"></div>
+    </footer>
+    <script src="../js/prism.js"></script>
     </div>
 </body>
 
