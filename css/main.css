@@ -57,11 +57,40 @@ a.button {
     padding: 4px 8px;
 }
 
-a.button:hover {
-    outline: none; /* Remove the outline */
-    border-radius: 8px;
-    padding: 4px 8px;
-    background-color: #ffb6c1; /* Light pastel pink */
+.button {
+    position: relative;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.button:hover {
+    box-shadow: 0 0 5px 1px var(--highlight-colour); /* Use highlight color for smoother shadow */
+    transform: scale(0.9); /* Slightly scale up the button */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+}
+
+.copy-button {
+    border: 1px solid var(--primary-colour);
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.copy-button:hover {
+    box-shadow: 0 0 5px 1px var(--highlight-colour); /* Use highlight color for smoother shadow */
+    transform: scale(0.9); /* Slightly scale up the button */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+}
+
+pre {
+    position: relative;
 }
 
 p {
