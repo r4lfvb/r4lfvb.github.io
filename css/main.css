@@ -70,7 +70,6 @@ a.button {
 
 .copy-button {
     border: 1px solid var(--primary-colour);
-    color: black;
     padding: 5px 10px;
     text-align: center;
     text-decoration: none;
