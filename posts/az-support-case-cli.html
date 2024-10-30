@@ -53,8 +53,8 @@
             <p>I recently lost access to one of my Azure subscriptions and could no longer see it in the subscription
                 list in the <a href="https://portal.azure.com">Azure Portal</a> or using the <a
                     href="https://learn.microsoft.com/en-us/cli/azure">Azure CLI</a>.</p>
-            <p>Of course you can create a support case from the Azure portal but if you don't have a subscription, you
-                need to use the Azure CLI to create it.</p>
+            <p>Of course you can create a support case from the Azure portal but only you have a subscription. If you don't, you
+                can use the Azure CLI to create it.</p>
             <img src="../img/azure-portal-support-case.png"
                 alt="Screenshot of the Azure Portal showing the support case creation form with the required subscription dropdown box." />
             <p>Here's how you can create an Azure support case using the Azure CLI:</p>
@@ -90,8 +90,6 @@
 
                 <pre><code class="language-powershell">az support no-subscription tickets create --ticket-name "CannotAccessSub" --title "I cannot access my subscription" --contact-country "[Your A-3 Country Code]" --contact-email "[Your email address]" --contact-first-name "[Your first name]" --contact-language "en-us" --contact-last-name "[Your last name]" --contact-method "email" --contact-timezone "[Your time zone name]" --description "I can no longer see my Azure subscription listed in the portal or CLI. Sub Name=[Your Sub Name Here] Sub ID=[Your Sub ID Here]" --advanced-diagnostic-consent "Yes" --problem-classification "[The problem classification ID you got earlier]" --severity "minimal"</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
 
-                <li>Create the support case:</li>
-                <pre><code class="language-powershell">az support no-subscription tickets create --ticket-name "CannotAccessSub" --title "I cannot access my subscription" --contact-country "[Your A-3 Country Code]" --contact-email "[Your email address]" --contact-first-name "[Your first name]" --contact-language "en-us" --contact-last-name "[Your last name]" --contact-method "email" --contact-timezone "[Your time zone name]" --description "I can no longer see my Azure subscription listed in the portal or CLI. Sub Name=[Your Sub Name Here] Sub ID=[Your Sub ID Here]" --advanced-diagnostic-consent "Yes" --problem-classification "[The problem classification ID you got earlier]" --severity "minimal"</code><button class="copy-button" onclick="copyToClipboard(this)">Copy</button></pre>
             </ol>
             <script>
                 function copyToClipboard(button) {
