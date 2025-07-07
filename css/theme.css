@@ -1,31 +1,31 @@
 ﻿/* Dark theme */
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-colour: #1e1e2e;
-        --bg-secondary: #302d41;
-        --primary-colour: #cdd6f4;
-        --secondary-colour: #1e1e2e;
-        --highlight-colour: #f5e0dc;
-        --highlight-bg-colour: #f28fad;
-        --btn-txt-colour: #1e1e2e;
-        --photo-bg-colour: #302d41;
-        --photo-txt-colour: #f5e0dc;
-        --blockquote: #f28fad;
+        --bg-colour: #2a3430;
+        --bg-secondary: #3d4a42;
+        --primary-colour: #c8d8c8;
+        --secondary-colour: #2a3430;
+        --highlight-colour: #e8f0e8;
+        --highlight-bg-colour: #7ba05b;
+        --btn-txt-colour: #2a3430;
+        --photo-bg-colour: #3d4a42;
+        --photo-txt-colour: #e8f0e8;
+        --blockquote: #8fb069;
     }
 }
 
 /* Light theme */
 @media (prefers-color-scheme: light) {
     :root {
-        --bg-colour: #ffffff;
-        --bg-secondary: #f5e0dc;
-        --primary-colour: #4c4f69;
-        --secondary-colour: #dce0e8;
-        --highlight-colour: #302d41;
-        --highlight-bg-colour: #f28fad;
-        --btn-txt-colour: #4c4f69;
-        --photo-bg-colour: #f5e0dc;
-        --photo-txt-colour: #d20f39;
-        --blockquote: #f28fad;
+        --bg-colour: #f8fdf8;
+        --bg-secondary: #e8f5e8;
+        --primary-colour: #4a5c4a;
+        --secondary-colour: #d8ead8;
+        --highlight-colour: #3d4a42;
+        --highlight-bg-colour: #a8c89a;
+        --btn-txt-colour: #3d4a42;
+        --photo-bg-colour: #e8f5e8;
+        --photo-txt-colour: #5d7a5d;
+        --blockquote: #7ba05b;
     }
 }
