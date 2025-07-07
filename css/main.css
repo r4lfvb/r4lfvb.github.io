@@ -330,3 +330,78 @@ a.read-more, a.read-more:hover, a.read-more:active {
     margin: 0 0 20px 0;
     max-width: 100%;
 }
+
+/* Circle Button Styles */
+.circle-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 60px;
+}
+
+.circle-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--primary-colour);
+    color: var(--bg-colour);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 3px solid var(--primary-colour);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.circle-button:hover {
+    background-color: var(--bg-colour);
+    color: var(--primary-colour);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.main-button {
+    width: 180px;
+    height: 180px;
+    font-size: 1.4em;
+    cursor: default;
+}
+
+.main-button:hover {
+    transform: none;
+    background-color: var(--primary-colour);
+    color: var(--bg-colour);
+}
+
+.button-row {
+    display: flex;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .circle-button {
+        width: 120px;
+        height: 120px;
+        font-size: 1em;
+    }
+    
+    .main-button {
+        width: 140px;
+        height: 140px;
+        font-size: 1.2em;
+    }
+    
+    .button-row {
+        gap: 30px;
+    }
+    
+    .circle-buttons {
+        gap: 40px;
+    }
+}
