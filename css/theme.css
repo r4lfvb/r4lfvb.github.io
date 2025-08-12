@@ -1,31 +1,62 @@
-﻿/* Dark theme */
+﻿/* Default (fallback) theme – mirrors light palette for older browsers */
+:root {
+    --bg-colour: #f6fbf9;
+    --bg-secondary: #ffffff;
+    --primary-colour: #1f2a32;
+    --secondary-colour: #e7f3ef;
+    --highlight-colour: #2f7d74;
+    --highlight-bg-colour: #d8eee9;
+    --btn-txt-colour: #123a36;
+    --photo-bg-colour: #eef6f4;
+    --photo-txt-colour: #426064;
+    --blockquote: #7fb9b0;
+}
+/* Dark theme – calm blue/green Scandinavian palette */
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-colour: #2a3430;
-        --bg-secondary: #3d4a42;
-        --primary-colour: #c8d8c8;
-        --secondary-colour: #2a3430;
-        --highlight-colour: #e8f0e8;
-        --highlight-bg-colour: #7ba05b;
-        --btn-txt-colour: #2a3430;
-        --photo-bg-colour: #3d4a42;
-        --photo-txt-colour: #e8f0e8;
-        --blockquote: #8fb069;
+        /* Backgrounds */
+        --bg-colour: #0e141b;          /* deep slate/navy */
+        --bg-secondary: #131d26;       /* slightly lighter panel */
+
+        /* Text */
+        --primary-colour: #e3efe9;     /* soft off-white with a hint of green */
+        --secondary-colour: #0e141b;   /* used as contrast text on selections */
+
+        /* Accents */
+        --highlight-colour: #7dd3c7;   /* muted aqua */
+        --highlight-bg-colour: #1f3a3a;/* subtle teal for selections/hover */
+        --btn-txt-colour: #0e141b;
+
+        /* Photo gallery */
+        --photo-bg-colour: #162126;
+        --photo-txt-colour: #cfe9e2;
+
+        /* Blockquote / accents */
+        --blockquote: #4fb3a8;
     }
 }
 
-/* Light theme */
+/* Light theme – calm blue/green Scandinavian palette */
 @media (prefers-color-scheme: light) {
     :root {
-        --bg-colour: #f8fdf8;
-        --bg-secondary: #e8f5e8;
-        --primary-colour: #4a5c4a;
-        --secondary-colour: #d8ead8;
-        --highlight-colour: #3d4a42;
-        --highlight-bg-colour: #a8c89a;
-        --btn-txt-colour: #3d4a42;
-        --photo-bg-colour: #e8f5e8;
-        --photo-txt-colour: #5d7a5d;
-        --blockquote: #7ba05b;
+        /* Backgrounds */
+        --bg-colour: #f6fbf9;          /* very light mint/blue tint */
+        --bg-secondary: #ffffff;       /* clean card background */
+
+        /* Text */
+        --primary-colour: #1f2a32;     /* cool blue-gray */
+        --secondary-colour: #e7f3ef;   /* contrast text on selection */
+
+        /* Accents */
+        --highlight-colour: #2f7d74;   /* muted teal/green */
+        --highlight-bg-colour: #d8eee9;/* pale mint */
+        --btn-txt-colour: #123a36;
+
+        /* Photo gallery */
+        --photo-bg-colour: #eef6f4;
+        --photo-txt-colour: #426064;
+
+        /* Blockquote / accents */
+        --blockquote: #7fb9b0;
     }
 }
