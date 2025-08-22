@@ -1,0 +1,174 @@
+/* ========================
+   Color System & Themes
+   ======================== */
+:root {
+  --font-display: 'Yeseva One', 'Montserrat', 'Raleway', system-ui, sans-serif;
+  --font-sans: 'Raleway', 'Montserrat', system-ui, sans-serif;
+
+  --color-bg: #f5fdf9;           /* calmer mint */
+  --color-bg-accent: #e9f7f0;    /* subtle wash */
+  --color-card: #ffffffcc;       /* airy panel */
+  --color-border: #b9e6d3;       /* faint edge */
+  --color-border-strong: #64b891;/* accents */
+  --color-text: #1e3228;         /* forest */
+  --color-text-muted: #587766;   /* soft */
+  --color-accent: #ff8eea;       /* pink */
+  --shadow: 0 4px 22px -10px rgba(30,50,40,0.25);
+  --focus-ring: 0 0 0 2px var(--color-bg),0 0 0 4px var(--color-accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0d1c16;
+    --color-bg-accent: #12251d;
+    --color-card: #162f25cc;
+    --color-border: #2d5747;
+    --color-border-strong: #4d9c79;
+    --color-text: #dff6ec;
+    --color-text-muted: #93b6a7;
+    --shadow: 0 4px 28px -8px rgba(0,0,0,0.55);
+  }
+}
+
+/* ========================
+   Global Reset & Base
+   ======================== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(140deg,var(--color-bg) 0%,var(--color-bg-accent) 100%) fixed;
+  color: var(--color-text);
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: clamp(1.25rem, 3vh, 3rem) 1rem;
+}
+
+.site {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================
+   Card Layout
+   ======================== */
+.card {
+  --pad-x: clamp(1.75rem, 5vw, 3.75rem);
+  --pad-y: clamp(2rem, 5vh, 3.5rem);
+  background: var(--color-card);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  backdrop-filter: blur(10px) saturate(160%);
+  padding: var(--pad-y) var(--pad-x);
+  border-radius: 1.4rem;
+  position: relative;
+  width: min(600px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+}
+
+/* Minimal style: previous decorative corner accents removed */
+
+.card__header { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 5.25rem);
+  line-height: 0.92;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  color: var(--color-text);
+  text-rendering: optimizeLegibility;
+}
+
+.tagline {
+  margin: 0;
+  font-size: clamp(1rem, 2.1vw, 1.25rem);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  max-width: 34ch;
+}
+
+.divider { height: 1px; background: linear-gradient(90deg,transparent,var(--color-border-strong) 10%,var(--color-border) 50%,var(--color-border-strong) 90%,transparent); }
+
+/* ========================
+   Buttons
+   ======================== */
+.links { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+.btn {
+  --btn-fg: var(--color-text);
+  --btn-border: var(--color-border-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: 0.7rem 1.05rem 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  color: var(--btn-fg);
+  border: 1px solid var(--btn-border);
+  border-radius: 999px;
+  position: relative;
+  transition: border-color .3s, background-color .3s, color .3s, transform .25s;
+}
+
+.btn svg { width: 1.1rem; height: 1.1rem; fill: currentColor; display: block; }
+
+.btn--linkedin { --btn-border: #0a66c2; }
+.btn--github { --btn-border: #24292f; }
+
+@media (prefers-color-scheme: dark) {
+  .btn--github { --btn-border: #2f363d; }
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, var(--color-accent) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity .4s;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.btn:hover, .btn:focus-visible { border-color: var(--color-accent); color: var(--color-text); }
+.btn:hover:before, .btn:focus-visible:before { opacity: .18; }
+.btn:active { transform: translateY(1px); }
+
+.btn__icon { display: flex; }
+
+/* Accent ring on focus when using keyboard only */
+body :focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* ========================
+   Responsive Tweaks
+   ======================== */
+@media (max-width: 560px) {
+  .card { gap: 2rem; }
+  .links { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+}
+
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Fine-grained typography smoothing for hi-dpi */
+@supports (font-smooth: antialiased) { body { font-smooth: antialiased; } }
