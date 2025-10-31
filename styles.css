@@ -17,8 +17,32 @@
   --focus-ring: 0 0 0 2px var(--color-bg),0 0 0 4px var(--color-accent);
 }
 
+/* Light theme explicit */
+:root[data-theme="light"] {
+  --color-bg: #f5fdf9;
+  --color-bg-accent: #e9f7f0;
+  --color-card: #ffffffcc;
+  --color-border: #b9e6d3;
+  --color-border-strong: #64b891;
+  --color-text: #1e3228;
+  --color-text-muted: #587766;
+  --shadow: 0 4px 22px -10px rgba(30,50,40,0.25);
+}
+
+/* Dark theme explicit */
+:root[data-theme="dark"] {
+  --color-bg: #0d1c16;
+  --color-bg-accent: #12251d;
+  --color-card: #162f25cc;
+  --color-border: #2d5747;
+  --color-border-strong: #4d9c79;
+  --color-text: #dff6ec;
+  --color-text-muted: #93b6a7;
+  --shadow: 0 4px 28px -8px rgba(0,0,0,0.55);
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --color-bg: #0d1c16;
     --color-bg-accent: #12251d;
     --color-card: #162f25cc;
@@ -172,3 +196,142 @@ body :focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
 /* Fine-grained typography smoothing for hi-dpi */
 @supports (font-smooth: antialiased) { body { font-smooth: antialiased; } }
+
+/* ========================
+   Theme Toggle Switch
+   ======================== */
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-toggle__switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 3.5rem;
+  height: 2rem;
+  padding: 0.25rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  backdrop-filter: blur(10px) saturate(160%);
+}
+
+.theme-toggle__switch:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-1px);
+}
+
+.theme-toggle__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  stroke: none;
+}
+
+.theme-toggle__icon--sun svg path {
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-toggle__slider {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-border-strong));
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode (default) - slider on left (sun side) */
+:root[data-theme="light"] .theme-toggle__slider,
+:root:not([data-theme]) .theme-toggle__slider {
+  transform: translateX(0);
+}
+
+:root[data-theme="light"] .theme-toggle__icon--sun,
+:root:not([data-theme]) .theme-toggle__icon--sun {
+  color: var(--color-text);
+}
+
+/* Dark mode - slider on right (moon side) */
+:root[data-theme="dark"] .theme-toggle__slider {
+  transform: translateX(1.5rem);
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--moon {
+  color: var(--color-text);
+}
+
+/* When system prefers dark mode but no explicit theme set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .theme-toggle__slider {
+    transform: translateX(1.5rem);
+  }
+  
+  :root:not([data-theme]) .theme-toggle__icon--sun {
+    color: var(--color-text-muted);
+  }
+  
+  :root:not([data-theme]) .theme-toggle__icon--moon {
+    color: var(--color-text);
+  }
+}
+
+@media (max-width: 560px) {
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    gap: 0.6rem;
+  }
+  
+  .theme-toggle__switch {
+    width: 3rem;
+    height: 1.75rem;
+  }
+  
+  .theme-toggle__icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  
+  .theme-toggle__slider {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  :root[data-theme="dark"] .theme-toggle__slider {
+    transform: translateX(1.25rem);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .theme-toggle__slider {
+      transform: translateX(1.25rem);
+    }
+  }
+}

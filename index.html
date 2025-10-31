@@ -13,6 +13,24 @@
     <link rel="icon" type="image/png" href="favicon.png" />
   </head>
   <body>
+    <!-- Theme Toggle Switch -->
+    <div class="theme-toggle" aria-label="Toggle light/dark mode">
+      <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/>
+        </svg>
+      </span>
+      <button class="theme-toggle__switch" id="themeToggle" aria-label="Toggle between light and dark mode">
+        <span class="theme-toggle__slider" aria-hidden="true"></span>
+      </button>
+      <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </span>
+    </div>
+
     <main class="site">
       <section class="card" aria-labelledby="name" aria-describedby="tagline">
         <header class="card__header">
@@ -38,16 +56,44 @@
         </nav>
       </section>
     </main>
-    <!-- Inline optimized LinkedIn SVG path (replacing placeholder) -->
-    <svg width="0" height="0" style="position:absolute;" aria-hidden="true" focusable="false">
-      <defs>
-        <symbol id="icon-linkedin" viewBox="0 0 24 24">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.604 0 4.262 2.372 4.262 5.455v6.288ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.554V9h3.565v11.452ZM22.225 0H1.771A1.27 1.27 0 0 0 .5 1.246v21.507A1.27 1.27 0 0 0 1.771 24h20.451a1.27 1.27 0 0 0 1.271-1.247V1.246A1.27 1.27 0 0 0 22.225 0Z"/>
-        </symbol>
-      </defs>
-    </svg>
+
     <script>
-      /* No JavaScript functionality required; script tag intentionally left empty. */
+      // Theme toggle functionality
+      const themeToggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+      
+      // Get stored theme or detect system preference
+      const getPreferredTheme = () => {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+          return storedTheme;
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      
+      // Apply theme
+      const setTheme = (theme) => {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        themeToggle.setAttribute('aria-pressed', theme === 'dark');
+      };
+      
+      // Initialize theme
+      const currentTheme = getPreferredTheme();
+      setTheme(currentTheme);
+      
+      // Toggle theme on button click
+      themeToggle.addEventListener('click', () => {
+        const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+      });
+      
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          setTheme(e.matches ? 'dark' : 'light');
+        }
+      });
     </script>
   </body>
 </html>
