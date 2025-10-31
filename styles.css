@@ -100,8 +100,6 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Minimal style: previous decorative corner accents removed */
-
 .card__header { display: flex; flex-direction: column; gap: 0.75rem; }
 
 .name {
@@ -229,7 +227,6 @@ body :focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
 .theme-toggle__switch:hover {
   border-color: var(--color-border-strong);
-  transform: translateY(-1px);
 }
 
 .theme-toggle__icon {
@@ -295,7 +292,7 @@ body :focus-visible { outline: none; box-shadow: var(--focus-ring); }
   }
   
   :root:not([data-theme]) .theme-toggle__icon--sun {
-    color: var(--color-text-muted);
+    color: var(--color-text);
   }
   
   :root:not([data-theme]) .theme-toggle__icon--moon {
