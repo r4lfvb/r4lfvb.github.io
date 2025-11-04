@@ -13,8 +13,8 @@
   --color-text: #1e3228;         /* forest */
   --color-text-muted: #587766;   /* soft */
   --color-accent: #ff8eea;       /* pink */
-  --shadow: 0 4px 22px -10px rgba(30,50,40,0.25);
-  --focus-ring: 0 0 0 2px var(--color-bg),0 0 0 4px var(--color-accent);
+  --shadow: 0 4px 22px -10px rgba(30, 50, 40, 0.25);
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
 }
 
 /* Light theme explicit */
@@ -26,7 +26,7 @@
   --color-border-strong: #64b891;
   --color-text: #1e3228;
   --color-text-muted: #587766;
-  --shadow: 0 4px 22px -10px rgba(30,50,40,0.25);
+  --shadow: 0 4px 22px -10px rgba(30, 50, 40, 0.25);
 }
 
 /* Dark theme explicit */
@@ -38,7 +38,7 @@
   --color-border-strong: #4d9c79;
   --color-text: #dff6ec;
   --color-text-muted: #93b6a7;
-  --shadow: 0 4px 28px -8px rgba(0,0,0,0.55);
+  --shadow: 0 4px 28px -8px rgba(0, 0, 0, 0.55);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,7 +50,7 @@
     --color-border-strong: #4d9c79;
     --color-text: #dff6ec;
     --color-text-muted: #93b6a7;
-    --shadow: 0 4px 28px -8px rgba(0,0,0,0.55);
+    --shadow: 0 4px 28px -8px rgba(0, 0, 0, 0.55);
   }
 }
 
@@ -63,7 +63,7 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(140deg,var(--color-bg) 0%,var(--color-bg-accent) 100%) fixed;
+  background: linear-gradient(140deg, var(--color-bg) 0%, var(--color-bg-accent) 100%) fixed;
   color: var(--color-text);
   line-height: 1.5;
   letter-spacing: 0.2px;
@@ -100,7 +100,11 @@ body {
   box-shadow: var(--shadow);
 }
 
-.card__header { display: flex; flex-direction: column; gap: 0.75rem; }
+.card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
 
 .name {
   font-family: var(--font-display);
@@ -121,19 +125,33 @@ body {
   max-width: 34ch;
 }
 
-.divider { height: 1px; background: linear-gradient(90deg,transparent,var(--color-border-strong) 10%,var(--color-border) 50%,var(--color-border-strong) 90%,transparent); }
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border-strong) 10%,
+    var(--color-border) 50%,
+    var(--color-border-strong) 90%,
+    transparent
+  );
+}
 
 /* ========================
    Buttons
    ======================== */
-.links { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
 
 .btn {
   --btn-fg: var(--color-text);
   --btn-border: var(--color-border-strong);
   display: inline-flex;
   align-items: center;
-  gap: .55rem;
+  gap: 0.55rem;
   padding: 0.7rem 1.05rem 0.65rem;
   font-size: 0.9rem;
   line-height: 1;
@@ -145,16 +163,22 @@ body {
   border: 1px solid var(--btn-border);
   border-radius: 999px;
   position: relative;
-  transition: border-color .3s, background-color .3s, color .3s, transform .25s;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s, transform 0.25s;
 }
 
-.btn svg { width: 1.1rem; height: 1.1rem; fill: currentColor; display: block; }
+.btn svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+  display: block;
+}
 
 .btn--linkedin { --btn-border: #0a66c2; }
 .btn--github { --btn-border: #24292f; }
+:root[data-theme="dark"] .btn--github { --btn-border: #c9d1d9; }
 
 @media (prefers-color-scheme: dark) {
-  .btn--github { --btn-border: #2f363d; }
+  :root:not([data-theme]) .btn--github { --btn-border: #c9d1d9; }
 }
 
 .btn:before {
@@ -164,19 +188,24 @@ body {
   border-radius: inherit;
   background: linear-gradient(120deg, var(--color-accent) 0%, transparent 70%);
   opacity: 0;
-  transition: opacity .4s;
+  transition: opacity 0.4s;
   mix-blend-mode: screen;
   pointer-events: none;
 }
 
 .btn:hover, .btn:focus-visible { border-color: var(--color-accent); color: var(--color-text); }
-.btn:hover:before, .btn:focus-visible:before { opacity: .18; }
+.btn:hover:before, .btn:focus-visible:before { opacity: 0.18; }
 .btn:active { transform: translateY(1px); }
 
-.btn__icon { display: flex; }
+.btn__icon {
+  display: flex;
+}
 
 /* Accent ring on focus when using keyboard only */
-body :focus-visible { outline: none; box-shadow: var(--focus-ring); }
+body :focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
 
 /* ========================
    Responsive Tweaks
@@ -189,11 +218,18 @@ body :focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
 /* Reduce motion respect */
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Fine-grained typography smoothing for hi-dpi */
-@supports (font-smooth: antialiased) { body { font-smooth: antialiased; } }
+@supports (font-smooth: antialiased) {
+  body {
+    font-smooth: antialiased;
+  }
+}
 
 /* ========================
    Theme Toggle Switch
