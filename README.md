@@ -56,3 +56,14 @@ Serve the repository root via any static host (e.g., GitHub Pages). With GitHub 
 2. Pages auto-builds—visit `https://<username>.github.io/`.
 
 No build, bundler, or pipeline required.
+
+## Project Documentation
+
+This repository includes two governance / guidance documents:
+
+| File | Purpose |
+|------|---------|
+| `CONSTITUTION.md` | Stable charter: mission, principles, performance & accessibility budgets, change rules. |
+| `copilot-instructions.md` | Actionable rules & examples for consistent AI‑assisted edits (HTML/CSS/JS heuristics). |
+
+When making non‑trivial changes, skim `CONSTITUTION.md` first. When using GitHub Copilot Chat, you can reference these files explicitly (e.g., “Apply performance budgets from CONSTITUTION.md”).
