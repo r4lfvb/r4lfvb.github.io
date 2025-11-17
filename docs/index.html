@@ -32,6 +32,7 @@
     </div>
 
     <main class="site">
+      <div class="profile">
       <section class="card" aria-labelledby="name" aria-describedby="tagline">
         <header class="card__header">
           <h1 id="name" class="name">Ralf</h1>
@@ -55,6 +56,10 @@
           </a>
         </nav>
       </section>
+      <figure class="polaroid" aria-label="Photo of Ralf">
+        <img data-random-photo src="photos/rvb-photo (1).jpg" alt="Ralf in the mountains" loading="lazy" />
+      </figure>
+      </div>
     </main>
 
     <script>
@@ -94,6 +99,31 @@
           setTheme(e.matches ? 'dark' : 'light');
         }
       });
+
+      // Random photo loader
+      (function() {
+        const imgEl = document.querySelector('[data-random-photo]');
+        if (!imgEl) return;
+        const photos = [
+          'photos/rvb-photo (1).jpg','photos/rvb-photo (2).jpg','photos/rvb-photo (3).jpg','photos/rvb-photo (4).jpg','photos/rvb-photo (5).jpg','photos/rvb-photo (6).jpg','photos/rvb-photo (7).jpg','photos/rvb-photo (8).jpg','photos/rvb-photo (9).jpg','photos/rvb-photo (10).jpg','photos/rvb-photo (11).jpg','photos/rvb-photo (12).JPG','photos/rvb-photo (13).JPG','photos/rvb-photo (14).JPG','photos/rvb-photo (15).jpg','photos/rvb-photo (16).jpg','photos/rvb-photo (17).jpg','photos/rvb-photo (18).jpg','photos/rvb-photo (19).jpg','photos/rvb-photo (20).jpg','photos/rvb-photo (21).jpg'
+        ];
+        
+        // Function to pick a random photo
+        const pickRandomPhoto = () => {
+          return photos[Math.floor(Math.random() * photos.length)];
+        };
+        
+        // Set initial random photo
+        imgEl.src = pickRandomPhoto();
+        
+        // Change photo on click
+        imgEl.addEventListener('click', () => {
+          imgEl.src = pickRandomPhoto();
+        });
+        
+        // Add cursor pointer to indicate it's clickable
+        imgEl.style.cursor = 'pointer';
+      })();
     </script>
   </body>
 </html>

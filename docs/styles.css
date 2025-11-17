@@ -81,6 +81,62 @@ body {
 }
 
 /* ========================
+   Profile Layout (Card + Polaroid)
+   ======================== */
+.profile {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: stretch; /* match heights */
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.polaroid {
+  --inner-radius: 0.9rem;
+  --polaroid-bg: #ffffff;
+  background: var(--polaroid-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  padding: 0.9rem;
+  width: clamp(220px, 30vw, 300px);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  backdrop-filter: blur(6px) saturate(140%);
+  position: relative;
+}
+
+/* Dark theme polaroid styling */
+:root[data-theme="dark"] .polaroid {
+  --polaroid-bg: #1a2e27;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .polaroid {
+    --polaroid-bg: #1a2e27;
+  }
+}
+
+.polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--inner-radius);
+  display: block;
+  /* Subtle brightness adjustment for dark mode */
+  transition: filter 0.3s ease;
+}
+
+:root[data-theme="dark"] .polaroid img {
+  filter: brightness(0.95);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .polaroid img {
+    filter: brightness(0.95);
+  }
+}
+
+/* ========================
    Card Layout
    ======================== */
 .card {
@@ -254,6 +310,8 @@ body :focus-visible {
    Responsive Tweaks
    ======================== */
 @media (max-width: 560px) {
+  .profile { display: flex; flex-direction: column-reverse; }
+  .polaroid { width: 100%; height: auto; }
   .card { gap: 2rem; }
   .links { flex-direction: column; }
   .btn { width: 100%; justify-content: center; }
