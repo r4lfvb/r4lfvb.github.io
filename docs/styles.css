@@ -197,6 +197,49 @@ body {
 .btn:hover:before, .btn:focus-visible:before { opacity: 0.18; }
 .btn:active { transform: translateY(1px); }
 
+/* LinkedIn hover - blue theme */
+.btn--linkedin:hover,
+.btn--linkedin:focus-visible {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  color: #ffffff;
+}
+
+.btn--linkedin:hover:before,
+.btn--linkedin:focus-visible:before {
+  opacity: 0;
+}
+
+/* GitHub hover - light theme */
+.btn--github:hover,
+.btn--github:focus-visible {
+  background-color: #24292f;
+  border-color: #24292f;
+  color: #ffffff;
+}
+
+.btn--github:hover:before,
+.btn--github:focus-visible:before {
+  opacity: 0;
+}
+
+/* GitHub hover - dark theme */
+:root[data-theme="dark"] .btn--github:hover,
+:root[data-theme="dark"] .btn--github:focus-visible {
+  background-color: #f6f8fa;
+  border-color: #f6f8fa;
+  color: #24292f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .btn--github:hover,
+  :root:not([data-theme]) .btn--github:focus-visible {
+    background-color: #f6f8fa;
+    border-color: #f6f8fa;
+    color: #24292f;
+  }
+}
+
 .btn__icon {
   display: flex;
 }
