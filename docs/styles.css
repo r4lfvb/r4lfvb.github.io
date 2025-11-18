@@ -70,14 +70,28 @@ body {
   display: flex;
   align-items: stretch;
   justify-content: center;
-  padding: clamp(1.25rem, 3vh, 3rem) 1rem;
+  padding: clamp(5rem, 8vh, 6rem) 1rem clamp(1.25rem, 3vh, 3rem);
+  min-height: 100vh;
 }
 
 .site {
   flex: 1;
   display: flex;
+  flex-direction: column; /* stack content vertically */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* start below body top padding by default */
+}
+
+/* When viewport height is very small, ensure additional offset before content */
+@media (max-height: 680px) {
+  .profile { margin-top: 1rem; }
+}
+
+/* When viewport height is comfortably large, center content vertically */
+@media (min-height: 780px) {
+  /* Center content but always reserve space for fixed toggle */
+  .site { justify-content: center; padding-top: 5.5rem; }
+  .profile { margin-top: 0; } /* remove small-height offset */
 }
 
 /* ========================
