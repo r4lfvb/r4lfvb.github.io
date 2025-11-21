@@ -221,6 +221,7 @@ body {
   --btn-border: var(--color-border-strong);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.55rem;
   padding: 0.7rem 1.05rem 0.65rem;
   font-size: 0.9rem;
@@ -233,6 +234,7 @@ body {
   border: 1px solid var(--btn-border);
   border-radius: 999px;
   position: relative;
+  min-width: 140px;
   transition: border-color 0.3s, background-color 0.3s, color 0.3s, transform 0.25s;
 }
 
@@ -245,10 +247,13 @@ body {
 
 .btn--linkedin { --btn-border: #0a66c2; }
 .btn--github { --btn-border: #24292f; }
+.btn--unsplash { --btn-border: #000000; }
 :root[data-theme="dark"] .btn--github { --btn-border: #c9d1d9; }
+:root[data-theme="dark"] .btn--unsplash { --btn-border: #ffffff; }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .btn--github { --btn-border: #c9d1d9; }
+  :root:not([data-theme]) .btn--unsplash { --btn-border: #ffffff; }
 }
 
 .btn:before {
@@ -307,6 +312,36 @@ body {
     background-color: #f6f8fa;
     border-color: #f6f8fa;
     color: #24292f;
+  }
+}
+
+/* Unsplash hover - light theme */
+.btn--unsplash:hover,
+.btn--unsplash:focus-visible {
+  background-color: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+.btn--unsplash:hover:before,
+.btn--unsplash:focus-visible:before {
+  opacity: 0;
+}
+
+/* Unsplash hover - dark theme */
+:root[data-theme="dark"] .btn--unsplash:hover,
+:root[data-theme="dark"] .btn--unsplash:focus-visible {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .btn--unsplash:hover,
+  :root:not([data-theme]) .btn--unsplash:focus-visible {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
   }
 }
 
